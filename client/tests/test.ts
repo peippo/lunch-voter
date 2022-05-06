@@ -28,4 +28,9 @@ test.describe('City page', () => {
 		await page.goto('/city/helsinki');
 		await expect(page.locator('ul:below(h1)')).not.toBeEmpty();
 	});
+
+	test('should show 404 error on unknown city', async ({ page }) => {
+		await page.goto('/city/mumbai');
+		await expect(page.locator('h1')).toContainText('404');
+	});
 });
