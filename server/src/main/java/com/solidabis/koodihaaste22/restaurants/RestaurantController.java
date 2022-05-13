@@ -26,7 +26,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000", "https://localhost:3000", "https://lunch-voter.vercel.app"}, allowedHeaders = "*", allowCredentials = "true")
+@CrossOrigin(origins = {"http://localhost:3000", "https://localhost:3000", "http://127.0.0.1:3000", "https://127.0.0.1:3000", "https://lunch-voter.vercel.app"}, allowedHeaders = "*", allowCredentials = "true")
 @RequestMapping(value = "/api/v1", produces = "application/json")
 public class RestaurantController {
     public static final int VOTERID_EXPIRY_TIME_SECONDS = 60 * 60 * 24;
