@@ -78,11 +78,13 @@ public class RestaurantController {
     private String makeOrReturnVoterCookie(String voterIdCookie, HttpServletResponse response) {
         if(voterIdCookie != null) return voterIdCookie;
         var voterId = UUID.randomUUID().toString();
-        var cookie = new Cookie(Constants.VOTERID_COOKIE_NAME, voterId);
-        cookie.setPath("/");
-        cookie.setHttpOnly(true);
-        cookie.setMaxAge(VOTERID_EXPIRY_TIME_SECONDS);
-        response.addCookie(cookie);
+        // var cookie = new Cookie(Constants.VOTERID_COOKIE_NAME, voterId);
+        // cookie.setPath("/");
+        // cookie.setHttpOnly(true);
+        // cookie.setMaxAge(VOTERID_EXPIRY_TIME_SECONDS);
+        // response.addCookie(cookie);
+
+        response.setHeader("Set-Cookie", Constants.VOTERID_COOKIE_NAME + "=" + voterId + "; Path=/; HttpOnly; Max-Age=" + VOTERID_EXPIRY_TIME_SECONDS + "; SameSite=None");
         return voterId;
     }
 
