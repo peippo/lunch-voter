@@ -84,7 +84,7 @@ public class RestaurantController {
         // cookie.setMaxAge(VOTERID_EXPIRY_TIME_SECONDS);
         // response.addCookie(cookie);
 
-        response.setHeader("Set-Cookie", Constants.VOTERID_COOKIE_NAME + "=" + voterId + "; Path=/; HttpOnly; Max-Age=" + VOTERID_EXPIRY_TIME_SECONDS + "; SameSite=None");
+        response.setHeader("Set-Cookie", Constants.VOTERID_COOKIE_NAME + "=" + voterId + "; Path=/; HttpOnly; Max-Age=" + VOTERID_EXPIRY_TIME_SECONDS + "; SameSite=None; Secure");
         return voterId;
     }
 
