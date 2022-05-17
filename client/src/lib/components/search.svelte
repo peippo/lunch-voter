@@ -39,7 +39,7 @@
 		/>
 	</label>
 
-	<button type="submit" class="text-pink-500">
+	<button type="submit" class="text-pink-500 hover:text-pink-600 transition-colors">
 		{@html submitIcon}
 		<span class="sr-only">Search</span>
 	</button>

@@ -10,4 +10,7 @@
 	};
 </script>
 
-<button class="bg-pink-500 text-white py-1 px-2" on:click={() => handleClick(id)}>Vote</button>
+<button
+	class="bg-pink-500 hover:bg-pink-600 transition-colors text-white rounded-b-lg p-2 -ml-4 -mr-4 -mb-4 mt-6"
+	on:click={() => handleClick(id)}>Vote</button
+>

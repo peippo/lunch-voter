@@ -6,7 +6,7 @@
 	const citySuggestions = ['helsinki', 'turku', 'tampere'];
 </script>
 
-<header class="flex p-3">
+<header class="flex bg-slate-200 p-5">
 	<Search />
 	<nav aria-label="Quicklinks">
 		<ul class="flex ml-5">
@@ -24,4 +24,6 @@
 	</nav>
 </header>
 
-<slot />
+<main class="p-5">
+	<slot />
+</main>

@@ -24,7 +24,7 @@
 	$: restaurants = data.restaurants;
 </script>
 
-<h1 class="capitalize">{city}</h1>
+<h1 class="text-3xl mb-3 capitalize">{city}</h1>
 
 {#key city}
 	<Restaurants {restaurants} />
