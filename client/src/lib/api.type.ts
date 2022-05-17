@@ -8,7 +8,7 @@ export interface Restaurant {
 	id: string;
 	name: string;
 	openingHours: string;
-	vote: number;
+	votes: number;
 	dishes: Dish[];
 }
 
