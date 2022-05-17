@@ -16,20 +16,16 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import type { RestaurantResponse } from '$lib/api.type';
+	import Restaurants from '$lib/components/restaurants.svelte';
 
 	export let data: RestaurantResponse;
 
-	$: restaurants = data?.restaurants;
+	$: city = $page.params.city;
+	$: restaurants = data.restaurants;
 </script>
 
-<h1 class="capitalize">{$page.params.city}</h1>
+<h1 class="capitalize">{city}</h1>
 
-{#if restaurants}
-	<ul>
-		{#each restaurants as restaurant}
-			<li>
-				{restaurant.name}
-			</li>
-		{/each}
-	</ul>
-{/if}
+{#key city}
+	<Restaurants {restaurants} />
+{/key}
