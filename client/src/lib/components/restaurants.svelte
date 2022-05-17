@@ -5,6 +5,7 @@
 	import { page } from '$app/stores';
 	import type { Restaurant } from '$lib/api.type';
 	import VoteButton from '$lib/components/voteButton.svelte';
+	import { removeTrailingCityName } from '$lib/utils';
 
 	$: city = $page.params.city;
 
@@ -24,7 +25,7 @@
 	<ul>
 		{#each restaurants as restaurant}
 			<li class="my-2">
-				{restaurant.name}
+				{removeTrailingCityName(restaurant.name, city)}
 				<VoteButton id={restaurant.id} />
 			</li>
 		{/each}

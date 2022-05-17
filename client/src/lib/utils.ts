@@ -1,3 +1,9 @@
+export const removeTrailingCityName = (restaurantName: string, city: string): string => {
+	const regExp = new RegExp(` ${city}`, 'i');
+
+	return restaurantName.replace(regExp, '');
+};
+
 export const isCity = (city: string): boolean => {
 	return cities.includes(city.toLowerCase());
 };
