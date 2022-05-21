@@ -11,11 +11,11 @@
 	// TODO:
 	// Refetching on mount just for the cookie, not sure why it wouldn't work when
 	// the load function runs in the client at "city/[city]" route - try to figure out
-	// onMount(() => {
-	// 	fetch(`${API_BASE_URL}restaurants/${city}`, {
-	// 		credentials: 'include'
-	// 	});
-	// });
+	onMount(() => {
+		fetch(`${API_BASE_URL}restaurants/${city}`, {
+			credentials: 'include'
+		});
+	});
 
 	export let restaurants: Array<Restaurant>;
 </script>
