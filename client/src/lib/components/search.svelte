@@ -22,14 +22,14 @@
 	};
 </script>
 
-<form on:submit|preventDefault={handleSubmit} class="flex items-center" autocomplete="off">
-	<label>
+<form on:submit|preventDefault={handleSubmit} class="flex items-center w-full" autocomplete="off">
+	<label class="w-full">
 		<span class="sr-only">City search:</span>
 		<input
 			id="city-search"
 			type="search"
 			name="city"
-			class="border-slate-700 border-2 rounded-lg py-2 px-3 mr-2"
+			class="border-slate-700 border-2 rounded-lg w-full py-2 px-3"
 			class:border-red-700={formError}
 			class:bg-red-200={formError}
 			autocomplete="off"
@@ -39,7 +39,7 @@
 		/>
 	</label>
 
-	<button type="submit" class="text-pink-500 hover:text-pink-600 transition-colors">
+	<button type="submit" class="text-pink-500 hover:text-pink-600 transition-colors ml-2">
 		{@html submitIcon}
 		<span class="sr-only">Search</span>
 	</button>
