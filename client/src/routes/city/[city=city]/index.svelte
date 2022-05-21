@@ -21,7 +21,7 @@
 	export let data: RestaurantResponse;
 
 	$: city = $page.params.city;
-	$: restaurants = data.restaurants;
+	$: restaurants = data.restaurants.sort((a, b) => (a.name > b.name ? 1 : -1));
 </script>
 
 <h1 class="text-3xl mb-3 capitalize">{city}</h1>

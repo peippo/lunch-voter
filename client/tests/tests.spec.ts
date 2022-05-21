@@ -33,4 +33,32 @@ test.describe('City page', () => {
 		await page.goto('/city/mumbai');
 		await expect(page.locator('h1')).toContainText('404');
 	});
+
+	test('should allow voting for a restaurant', async ({ page, context }) => {
+		await page.goto('/city/helsinki');
+		context.addCookies([voterIdCookie]);
+		const firstRestaurant = page.locator('ul.grid li').nth(0);
+		const voteButton = firstRestaurant.locator('button');
+		await voteButton.click();
+		await expect(firstRestaurant.locator('button')).toContainText('Remove vote');
+	});
+
+	test('should allow removing a vote for a restaurant', async ({ page, context }) => {
+		await page.goto('/city/helsinki');
+		context.addCookies([voterIdCookie]);
+		const firstRestaurant = page.locator('ul.grid li').nth(0);
+		await firstRestaurant.locator('text=Vote').click();
+		await expect(firstRestaurant.locator('button')).toContainText('Remove vote');
+		await firstRestaurant.locator('text=Remove vote').click();
+		await expect(firstRestaurant.locator('button')).toContainText('Vote');
+	});
 });
+
+const voterIdCookie = {
+	name: 'VOTERID',
+	value: '2a0e3589-68b7-4d37-9bbe-9948d2da9b30',
+	path: '/',
+	domain: 'lunch-voter-server.herokuapp.com',
+	secure: true,
+	httpOnly: true
+};
