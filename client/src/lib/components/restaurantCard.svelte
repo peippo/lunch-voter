@@ -11,7 +11,7 @@
 </script>
 
 <li
-	in:fly={{ y: -15, duration: 250, delay: index * 50 }}
+	in:fly={{ y: -15, duration: 250, delay: 350 + index * 50 }}
 	class="relative flex flex-col justify-between bg-white border-slate-300 drop-shadow-md border rounded-lg p-4"
 >
 	<h2 class="text-lg font-bold pr-10">{removeTrailingCityName(restaurant.name, city)}</h2>
