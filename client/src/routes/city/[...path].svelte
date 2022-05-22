@@ -1,12 +1,13 @@
-<script context="module">
-	/** @type {import('./[...path]').Load} */
-	export function load({ params }) {
+<script lang="ts" context="module">
+	import type { Load } from '@sveltejs/kit';
+
+	export const load: Load = async ({ params }) => {
 		return {
 			props: {
 				path: params.path
 			}
 		};
-	}
+	};
 </script>
 
 <script lang="ts">
