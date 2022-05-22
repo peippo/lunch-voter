@@ -1,9 +1,12 @@
 <script lang="ts" context="module">
+	const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
 	import type { Load } from '@sveltejs/kit';
 
 	export const load: Load = async ({ params, fetch, url }) => {
 		const { city } = params;
-		const response = await fetch(`/city/${city}/__data.json`).then((res) => res.json());
+		const response = await fetch(`${API_BASE_URL}restaurants/${city}`, {
+			credentials: 'include'
+		}).then((res) => res.json());
 
 		return {
 			props: {
