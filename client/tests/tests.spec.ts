@@ -12,14 +12,14 @@ test.describe('Search', () => {
 		await page.goto('/');
 		await page.fill('#city-search', 'helsinki');
 		await page.locator('form button').click();
-		await expect(page.locator('h1')).toHaveText('helsinki');
+		await expect(page.locator('main h1')).toHaveText('helsinki');
 	});
 
 	test('should open city page on quick link click', async ({ page }) => {
 		await page.goto('/');
 		const quickLinkNav = page.locator('header nav');
 		await quickLinkNav.locator('text=Turku').click();
-		await expect(page.locator('h1')).toHaveText('turku');
+		await expect(page.locator('main h1')).toHaveText('turku');
 	});
 });
 
@@ -31,7 +31,7 @@ test.describe('City page', () => {
 
 	test('should show 404 error on unknown city', async ({ page }) => {
 		await page.goto('/city/mumbai');
-		await expect(page.locator('h1')).toContainText('404');
+		await expect(page.locator('main h1')).toContainText('404');
 	});
 
 	test('should allow voting for a restaurant', async ({ page, context }) => {
