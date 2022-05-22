@@ -1,7 +1,6 @@
 <script type="ts">
-	import { invalidate } from '$app/navigation';
-
 	const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+	import { invalidate } from '$app/navigation';
 	import { votedId } from '$lib/store';
 
 	export let id: string;
@@ -15,15 +14,7 @@
 			credentials: 'include'
 		});
 
-		if (response.status === 200) {
-			// TODO: storing votedId in the store for now, "alreadyVoted" inside RestaurantResponse
-			// returns as null in browser for some reason...
-			if ($votedId === id) {
-				$votedId = '';
-			} else {
-				$votedId = id;
-			}
-		} else {
+		if (response.status !== 200) {
 			isError = true;
 		}
 

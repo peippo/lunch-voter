@@ -18,6 +18,7 @@
 </script>
 
 <script lang="ts">
+	import { votedId } from '$lib/store';
 	import { fly, fade } from 'svelte/transition';
 	import { page } from '$app/stores';
 	import type { RestaurantResponse } from '$lib/api.type';
@@ -25,6 +26,10 @@
 
 	export let data: RestaurantResponse;
 	export let url: string;
+
+	// Set voted restaurant ID to store
+	// FIXME: Why is this always empty on first load & hard refresh?
+	$: $votedId = data && data.alreadyVoted ? data.alreadyVoted : '';
 
 	$: restaurants = data.restaurants.sort((a, b) => (a.name > b.name ? 1 : -1));
 </script>
