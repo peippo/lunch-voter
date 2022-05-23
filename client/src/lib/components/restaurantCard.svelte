@@ -12,7 +12,7 @@
 	const hasLunch = restaurant.openingHours !== 'ei lounasta';
 	const hasHours = hasLunch && restaurant.openingHours !== '';
 	const hasMenu = restaurant.dishes.length > 0;
-	const hasVotes = restaurant.votes > 0;
+	$: hasVotes = restaurant.votes > 0;
 </script>
 
 <li
