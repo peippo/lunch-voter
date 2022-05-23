@@ -16,8 +16,8 @@
 </script>
 
 <li
-	in:fly={{ y: -15, duration: 250, delay: 350 + index * 50 }}
-	class="relative flex flex-col justify-between bg-white border-slate-300 drop-shadow-md border rounded-lg p-4"
+	in:fly={{ x: -15, duration: 250, delay: 350 + index * 50 }}
+	class="relative flex flex-col justify-between bg-white border-slate-300 drop-shadow-md border rounded-lg break-inside-avoid overflow-hidden [transform:translate3d(0,0,0)] p-4 mb-6"
 >
 	<h2 class="text-lg font-bold pr-10">{removeTrailingCityName(restaurant.name, city)}</h2>
 
@@ -62,9 +62,9 @@
 
 	{#if hasVotes}
 		<span
-			in:fly={{ y: -15, duration: 150 }}
-			out:fly={{ y: 15, duration: 150 }}
-			class="absolute -top-2 -right-2 bg-slate-200 border-b border-slate-400 inline-flex items-center justify-center drop-shadow-sm rounded-full py-2 px-3"
+			in:fly={{ x: 15, duration: 150 }}
+			out:fly={{ x: 15, duration: 150 }}
+			class="absolute top-2 right-0 bg-slate-200 border-b border-slate-400 inline-flex items-center justify-center drop-shadow-sm rounded-tl-full rounded-bl-full py-2 px-3"
 		>
 			<span class="text-pink-500 mr-2">
 				{@html thumbUpIcon}

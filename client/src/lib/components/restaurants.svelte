@@ -9,7 +9,9 @@
 </script>
 
 {#if restaurants}
-	<ul class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+	<ul
+		class="sm:columns-2 lg:columns-3 xl:columns-4 [column-fill:_balance] box-border mx-auto before:box-inherit after:box-inherit gap-6"
+	>
 		{#each restaurants as restaurant, index}
 			<RestaurantCard {restaurant} {city} {index} />
 		{/each}
