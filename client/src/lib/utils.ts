@@ -4,6 +4,13 @@ export const removeTrailingCityName = (restaurantName: string, city: string): st
 	return restaurantName.replace(regExp, '');
 };
 
+export const removeDishAttributes = (dish: string) => {
+	const attributes = ['m', 'g', 'l', 'vl', 'vs'];
+	const expStr = attributes.join('|');
+
+	return dish.replace(new RegExp('\\b(' + expStr + ')\\b', 'gi'), ' ').replace(/\s{2,}/g, ' ');
+};
+
 export const isCity = (city: string): boolean => {
 	return cities.includes(city.toLowerCase());
 };
