@@ -26,7 +26,7 @@ test.describe('Search', () => {
 test.describe('City page', () => {
 	test('should list restaurants', async ({ page }) => {
 		await page.goto('/city/helsinki');
-		await expect(page.locator('ul:below(h1)')).not.toBeEmpty();
+		await expect(page.locator('ul:below(h1)').first()).not.toBeEmpty();
 	});
 
 	test('should show 404 error on unknown city', async ({ page }) => {
