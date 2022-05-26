@@ -1,36 +1,26 @@
 <script type="ts">
-	const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-	import { invalidate } from '$app/navigation';
+	import { voteRestaurant } from '$lib/api';
 	import { votedId } from '$lib/store';
 
 	export let id: string;
 	export let city: string;
 
-	let isError = false;
+	let hasError = false;
 
 	const handleClick = async (id: string) => {
-		const response = await fetch(`${API_BASE_URL}vote/${id}`, {
-			method: 'POST',
-			credentials: 'include'
-		});
-
-		if (response.status !== 200) {
-			isError = true;
-		}
-
-		// Rerun load function to update the data
-		invalidate(`/city/${city}`);
+		const status = await voteRestaurant(id, city);
+		hasError = status !== 200;
 	};
 </script>
 
 <button
 	disabled={$votedId !== '' && $votedId !== id}
 	class="bg-pink-500 hover:bg-pink-600 disabled:bg-slate-500 disabled:cursor-not-allowed transition-colors text-white disabled:text-slate-400 rounded-b-lg p-2 -ml-4 -mr-4 -mb-4 mt-6"
-	class:bg-red-500={isError}
-	class:hover:bg-red-600={isError}
+	class:bg-red-500={hasError}
+	class:hover:bg-red-600={hasError}
 	on:click={() => handleClick(id)}
 >
-	{#if !isError}
+	{#if !hasError}
 		{#if $votedId === id}
 			Remove vote
 		{:else}

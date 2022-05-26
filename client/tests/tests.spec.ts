@@ -37,7 +37,7 @@ test.describe('City page', () => {
 	test('should allow voting for a restaurant', async ({ page, context }) => {
 		await page.goto('/city/helsinki');
 		context.addCookies([voterIdCookie]);
-		const firstRestaurant = page.locator('ul.grid li').nth(0);
+		const firstRestaurant = page.locator('main > div > ul li').nth(0);
 		const voteButton = firstRestaurant.locator('button');
 		await voteButton.click();
 		await expect(firstRestaurant.locator('button')).toContainText('Remove vote');
@@ -46,7 +46,7 @@ test.describe('City page', () => {
 	test('should allow removing a vote for a restaurant', async ({ page, context }) => {
 		await page.goto('/city/helsinki');
 		context.addCookies([voterIdCookie]);
-		const firstRestaurant = page.locator('ul.grid li').nth(0);
+		const firstRestaurant = page.locator('main > div > ul li').nth(0);
 		await firstRestaurant.locator('text=Vote').click();
 		await expect(firstRestaurant.locator('button')).toContainText('Remove vote');
 		await firstRestaurant.locator('text=Remove vote').click();

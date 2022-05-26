@@ -36,6 +36,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@peippo/sswr": "^1.7.1",
 		"dotenv": "^16.0.0"
 	}
 }
