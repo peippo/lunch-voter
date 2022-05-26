@@ -23,8 +23,9 @@
 	import { getRestaurants } from '$lib/api';
 	import { votedId } from '$lib/store';
 	import { fly, fade } from 'svelte/transition';
-	import Restaurants from '$lib/components/restaurants.svelte';
 	import type { RestaurantResponse } from '$lib/api.type';
+	import Restaurants from '$lib/components/restaurants.svelte';
+	import VoteNotice from '$lib/components/voteNotice.svelte';
 
 	export let initialData: RestaurantResponse;
 	export let city: string;
@@ -52,4 +53,6 @@
 			<Restaurants {restaurants} />
 		</div>
 	{/if}
+
+	<VoteNotice />
 {/key}

@@ -7,7 +7,7 @@
 	const citySuggestions = ['helsinki', 'turku', 'tampere', 'oulu', 'espoo'];
 </script>
 
-<header class="flex flex-col md:flex-row bg-slate-200 p-5">
+<header class="flex flex-col md:flex-row items-center bg-slate-200 p-5">
 	<div class="flex">
 		<Logo />
 		<Search />
@@ -20,14 +20,16 @@
 						sveltekit:prefetch
 						href={`/city/${city}`}
 						class="capitalize border-pink-500"
-						class:border-b-4={$page.params.city === city}>{city}</a
+						class:border-b-4={$page.params.city === city}
 					>
+						{city}
+					</a>
 				</li>
 			{/each}
 		</ul>
 	</nav>
 </header>
 
-<main class="p-5">
+<main class="p-5 mb-12">
 	<slot />
 </main>

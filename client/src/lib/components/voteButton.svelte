@@ -1,6 +1,6 @@
 <script type="ts">
 	import { voteRestaurant } from '$lib/api';
-	import { votedId } from '$lib/store';
+	import { votedId, votedCity } from '$lib/store';
 
 	export let id: string;
 	export let city: string;
@@ -10,6 +10,12 @@
 	const handleClick = async (id: string) => {
 		const status = await voteRestaurant(id, city);
 		hasError = status !== 200;
+
+		if (!hasError) {
+			setTimeout(() => {
+				$votedCity = $votedId ? city : '';
+			}, 500);
+		}
 	};
 </script>
 
