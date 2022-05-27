@@ -26,6 +26,8 @@
 	import type { RestaurantResponse } from '$lib/api.type';
 	import Restaurants from '$lib/components/restaurants.svelte';
 	import VoteNotice from '$lib/components/voteNotice.svelte';
+	import { sadFaceIcon } from '$lib/icons';
+	import NoRestaurantsMessage from '$lib/components/noRestaurantsMessage.svelte';
 
 	export let initialData: RestaurantResponse;
 	export let city: string;
@@ -48,11 +50,15 @@
 		</h1>
 	{/if}
 
-	{#if restaurants}
-		<div out:fade|local={{ duration: 250 }}>
+	<div out:fade|local={{ duration: 250 }}>
+		{#if restaurants}
 			<Restaurants {restaurants} />
-		</div>
-	{/if}
+		{/if}
+
+		{#if restaurants?.length === 0}
+			<NoRestaurantsMessage />
+		{/if}
+	</div>
 
 	<VoteNotice />
 {/key}

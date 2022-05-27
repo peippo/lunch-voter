@@ -62,3 +62,11 @@ const voterIdCookie = {
 	secure: true,
 	httpOnly: true
 };
+	test('should show voting notice', async ({ page }) => {
+		await page.goto('/city/helsinki');
+		const firstRestaurant = page.locator('main > div > ul li').nth(0);
+		const voteButton = firstRestaurant.locator('button');
+		await voteButton.click();
+		await page.goto('/city/turku');
+		await expect(page.locator('main')).toContainText('You voted in Helsinki');
+	});
