@@ -3,11 +3,13 @@
 	import type { Restaurant } from '$lib/api.type';
 	import VoteButton from '$lib/components/voteButton.svelte';
 	import { removeDishAttributes, removeTrailingCityName } from '$lib/utils';
-	import { clockIcon, noticeIcon, thumbUpIcon } from '$lib/icons';
+	import { clockIcon, externalLinkIcon, noticeIcon, thumbUpIcon } from '$lib/icons';
 
 	export let index: number;
 	export let city: string;
 	export let restaurant: Restaurant;
+
+	const restaurantName = removeTrailingCityName(restaurant.name, city);
 
 	const hasLunch = restaurant.openingHours !== 'ei lounasta';
 	const hasHours = hasLunch && restaurant.openingHours !== '';
@@ -19,7 +21,7 @@
 	in:fly={{ x: -15, duration: 250, delay: 350 + index * 50 }}
 	class="relative flex flex-col justify-between bg-white border-slate-300 drop-shadow-md border rounded-lg break-inside-avoid overflow-hidden [transform:translate3d(0,0,0)] p-4 mb-6"
 >
-	<h2 class="text-lg font-bold pr-10">{removeTrailingCityName(restaurant.name, city)}</h2>
+	<h2 class="text-lg font-bold pr-10">{restaurantName}</h2>
 
 	{#if !hasLunch}
 		<span class="flex mt-1 mb-auto">
@@ -58,6 +60,18 @@
 				</li>
 			{/each}
 		</ul>
+	{/if}
+
+	{#if !hasMenu}
+		<a
+			class="flex items-center text-sm text-slate-500 mt-4"
+			href={`https://www.google.com/search?q=${encodeURIComponent(restaurantName)}+${city}`}
+		>
+			<span class="mr-2">
+				{@html externalLinkIcon}
+			</span>
+			Search for menu on Google
+		</a>
 	{/if}
 
 	{#if hasVotes}
