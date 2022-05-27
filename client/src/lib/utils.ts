@@ -6,9 +6,9 @@ export const removeTrailingCityName = (restaurantName: string, city: string): st
 
 export const removeDishAttributes = (dish: string) => {
 	const attributes = ['m', 'g', 'l', 'vl', 'vs'];
-	const expStr = attributes.join('|');
+	const expStr = attributes.join('\\b|');
 
-	return dish.replace(new RegExp('\\b(' + expStr + ')\\b', 'gi'), ' ').replace(/\s{2,}/g, ' ');
+	return dish.replace(new RegExp(expStr, 'gi'), '');
 };
 
 export const isCity = (city: string): boolean => {
