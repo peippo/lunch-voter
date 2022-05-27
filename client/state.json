@@ -1,0 +1,24 @@
+{
+	"cookies": [
+		{
+			"sameSite": "Lax",
+			"name": "VOTERID",
+			"value": "53857f82-bb51-462e-b1c7-cb788703bef0",
+			"domain": "lunch-voter-server.herokuapp.com",
+			"path": "/",
+			"httpOnly": true,
+			"secure": true
+		}
+	],
+	"origins": [
+		{
+			"origin": "http://localhost:3000",
+			"localStorage": [
+				{
+					"name": "votedId",
+					"value": ""
+				}
+			]
+		}
+	]
+}

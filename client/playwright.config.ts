@@ -12,9 +12,11 @@ const config: PlaywrightTestConfig = {
 	},
 	fullyParallel: true,
 	reporter: 'list',
+	// globalSetup: './playwright.global-setup',
 	use: {
 		actionTimeout: 0,
 		baseURL: 'http://localhost:3000',
+		storageState: 'state.json',
 		trace: 'on-first-retry'
 	},
 	projects: [
@@ -23,13 +25,13 @@ const config: PlaywrightTestConfig = {
 			use: {
 				...devices['Desktop Firefox']
 			}
+		},
+		{
+			name: 'chromium',
+			use: {
+				...devices['Desktop Chrome']
+			}
 		}
-		// {
-		// 	name: 'chromium',
-		// 	use: {
-		// 		...devices['Desktop Chrome']
-		// 	}
-		// }
 		// {
 		// 	name: 'webkit',
 		// 	use: {

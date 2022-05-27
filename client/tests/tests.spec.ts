@@ -34,34 +34,30 @@ test.describe('City page', () => {
 		await expect(page.locator('main h1')).toContainText('404');
 	});
 
-	test('should allow voting for a restaurant', async ({ page, context }) => {
+	// TODO: mock API response instead of relying on Kaskinen never getting restaurants :)
+	test('should show message on city without restaurants', async ({ page }) => {
+		await page.goto('/city/kaskinen');
+		await expect(page.locator('main h2')).toContainText('Oh no, nothing to eat in kaskinen');
+	});
+
+	// FIXME: the cookies from state.json don't seem to get reliably set
+	test('should allow voting for a restaurant', async ({ page }) => {
 		await page.goto('/city/helsinki');
-		context.addCookies([voterIdCookie]);
 		const firstRestaurant = page.locator('main > div > ul li').nth(0);
 		const voteButton = firstRestaurant.locator('button');
 		await voteButton.click();
 		await expect(firstRestaurant.locator('button')).toContainText('Remove vote');
 	});
 
-	test('should allow removing a vote for a restaurant', async ({ page, context }) => {
+	test('should allow removing a vote for a restaurant', async ({ page }) => {
 		await page.goto('/city/helsinki');
-		context.addCookies([voterIdCookie]);
 		const firstRestaurant = page.locator('main > div > ul li').nth(0);
 		await firstRestaurant.locator('text=Vote').click();
 		await expect(firstRestaurant.locator('button')).toContainText('Remove vote');
 		await firstRestaurant.locator('text=Remove vote').click();
 		await expect(firstRestaurant.locator('button')).toContainText('Vote');
 	});
-});
 
-const voterIdCookie = {
-	name: 'VOTERID',
-	value: '2a0e3589-68b7-4d37-9bbe-9948d2da9b30',
-	path: '/',
-	domain: 'lunch-voter-server.herokuapp.com',
-	secure: true,
-	httpOnly: true
-};
 	test('should show voting notice', async ({ page }) => {
 		await page.goto('/city/helsinki');
 		const firstRestaurant = page.locator('main > div > ul li').nth(0);
@@ -70,3 +66,4 @@ const voterIdCookie = {
 		await page.goto('/city/turku');
 		await expect(page.locator('main')).toContainText('You voted in Helsinki');
 	});
+});
