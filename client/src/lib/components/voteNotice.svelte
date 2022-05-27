@@ -12,7 +12,10 @@
 				{@html noticeIcon}
 			</span>
 
-			<a href={`/city/${$votedCity}`}>
+			<a
+				href={`/city/${$votedCity}`}
+				class="focus-visible:outline-2 focus-visible:outline-pink-600 focus-visible:outline-offset-2 focus-visible:outline-dotted"
+			>
 				You voted in
 				<span class="capitalize border-b border-slate-400">{$votedCity}</span>
 			</a>

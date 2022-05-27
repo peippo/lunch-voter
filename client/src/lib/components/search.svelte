@@ -29,7 +29,7 @@
 			id="city-search"
 			type="search"
 			name="city"
-			class="border-slate-700 border-2 rounded-lg py-2 px-3"
+			class="border-slate-700 border-2 focus:border-slate-700 rounded-lg py-2 focus:outline-0 focus:ring-2 focus:ring-pink-500 caret-pink-500 px-3"
 			class:border-red-700={formError}
 			class:bg-red-200={formError}
 			autocomplete="off"
@@ -39,8 +39,11 @@
 		/>
 	</label>
 
-	<button type="submit" class="text-pink-500 hover:text-pink-600 transition-colors ml-2">
+	<button
+		type="submit"
+		class="text-pink-500 hover:text-pink-600 transition-colors focus:outline-0 focus:text-pink-600  ml-2"
+	>
 		{@html submitIcon}
-		<span class="sr-only">Search</span>
+		<span class="sr-only text-black">Search</span>
 	</button>
 </form>

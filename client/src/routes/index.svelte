@@ -23,7 +23,11 @@
 		Browse daily restaurant menus and vote for your favorite!
 	</p>
 
-	<p class="inline-flex text-sm border-b border-slate-400 mx-auto mt-8" in:fade={{ delay: 1100 }}>
-		<a href="https://github.com/peippo/lunch-voter">Github</a>
+	<p class="inline-flex text-sm mx-auto mt-8" in:fade={{ delay: 1100 }}>
+		<a
+			href="https://github.com/peippo/lunch-voter"
+			class="border-b border-slate-400 hover:border-slate-300 focus-visible:outline-2 focus-visible:outline-pink-600 focus-visible:outline-offset-2 focus-visible:outline-dotted transition-all"
+			>Github</a
+		>
 	</p>
 </div>

@@ -64,7 +64,7 @@
 
 	{#if !hasMenu}
 		<a
-			class="flex items-center text-sm text-slate-500 mt-4"
+			class="flex items-center text-sm text-slate-500 focus-visible:outline-2 focus-visible:outline-pink-600 focus-visible:outline-offset-2 focus-visible:outline-dotted mt-4"
 			href={`https://www.google.com/search?q=${encodeURIComponent(restaurantName)}+${city}`}
 		>
 			<span class="mr-2">
@@ -80,11 +80,12 @@
 			out:fly={{ x: 15, duration: 150 }}
 			class="absolute top-2 right-0 bg-slate-200 border-b border-slate-400 inline-flex items-center justify-center drop-shadow-sm rounded-tl-full rounded-bl-full py-2 px-3"
 		>
+			<span class="sr-only">Current votes: </span>
 			<span class="text-pink-500 mr-2">
 				{@html thumbUpIcon}
 			</span>
 			{restaurant.votes}
 		</span>
 	{/if}
-	<VoteButton id={restaurant.id} {city} />
+	<VoteButton {restaurantName} id={restaurant.id} {city} />
 </li>

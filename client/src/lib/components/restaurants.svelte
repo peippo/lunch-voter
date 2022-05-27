@@ -11,6 +11,7 @@
 {#if restaurants}
 	<ul
 		class="sm:columns-2 lg:columns-3 xl:columns-4 [column-fill:_balance] box-border mx-auto before:box-inherit after:box-inherit gap-6"
+		aria-label={`Restaurants in ${city}`}
 	>
 		{#each restaurants as restaurant, index}
 			<RestaurantCard {restaurant} {city} {index} />

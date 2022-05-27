@@ -19,8 +19,9 @@
 					<a
 						sveltekit:prefetch
 						href={`/city/${city}`}
-						class="capitalize border-pink-500"
-						class:border-b-4={$page.params.city === city}
+						class="capitalize border-b-4 focus-visible:outline-2 focus-visible:outline-pink-600 focus-visible:outline-offset-2 focus-visible:outline-dotted transition-colors"
+						class:border-pink-500={$page.params.city === city}
+						class:hover:border-slate-300={$page.params.city !== city}
 					>
 						{city}
 					</a>
