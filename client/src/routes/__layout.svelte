@@ -7,7 +7,7 @@
 	const citySuggestions = ['helsinki', 'turku', 'tampere', 'oulu', 'espoo'];
 </script>
 
-<header class="flex flex-col md:flex-row items-center bg-slate-200 p-5">
+<header class="flex flex-col md:flex-row items-center bg-slate-200 min-h-[100px] p-5">
 	<div class="flex">
 		<Logo />
 		<Search />
