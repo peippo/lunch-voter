@@ -4,11 +4,13 @@ export const removeTrailingCityName = (restaurantName: string, city: string): st
 	return restaurantName.replace(regExp, '');
 };
 
+// Could also check for preceding umlaut characters with (?<![öäå]) just to be sure,
+// but negative lookbehind does not seem to be supported in Safari
 export const removeDishAttributes = (dish: string) => {
 	const attributes = ['m', 'g', 'l', 'vl', 'vs'];
-	const expStr = attributes.join('\\b|');
+	const expStr = attributes.join('\\b|\\b');
 
-	return dish.replace(new RegExp(expStr, 'gi'), '');
+	return dish.replace(new RegExp('(\\b' + expStr + '\\b)(?![öäå])', 'gi'), '');
 };
 
 export const isCity = (city: string): boolean => {
