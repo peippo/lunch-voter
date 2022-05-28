@@ -12,14 +12,14 @@ test.describe('Search', () => {
 		await page.goto('/');
 		await page.fill('#city-search', 'helsinki');
 		await page.locator('form button').click();
-		await expect(page.locator('main h1')).toHaveText('helsinki');
+		await expect(page.locator('.city-title')).toHaveText('helsinki');
 	});
 
 	test('should open city page on quick link click', async ({ page }) => {
 		await page.goto('/');
 		const quickLinkNav = page.locator('header nav');
 		await quickLinkNav.locator('text=Turku').click();
-		await expect(page.locator('main h1')).toHaveText('turku');
+		await expect(page.locator('.city-title')).toHaveText('turku');
 	});
 });
 

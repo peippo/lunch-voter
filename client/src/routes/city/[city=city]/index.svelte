@@ -41,7 +41,7 @@
 {#key url}
 	{#if city}
 		<h1
-			class="text-4xl md:text-5xl lg:text-6xl text-slate-500 my-5 capitalize"
+			class="city-title text-4xl md:text-5xl lg:text-6xl text-slate-500 my-5 capitalize"
 			in:fly={{ x: -20, duration: 500, delay: 250 }}
 			out:fly={{ x: 25, duration: 250 }}
 		>
