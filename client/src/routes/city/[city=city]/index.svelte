@@ -26,7 +26,6 @@
 	import type { RestaurantResponse } from '$lib/api.type';
 	import Restaurants from '$lib/components/restaurants.svelte';
 	import VoteNotice from '$lib/components/voteNotice.svelte';
-	import { sadFaceIcon } from '$lib/icons';
 	import NoRestaurantsMessage from '$lib/components/noRestaurantsMessage.svelte';
 
 	export let initialData: RestaurantResponse;

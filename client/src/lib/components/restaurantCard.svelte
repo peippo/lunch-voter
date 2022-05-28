@@ -24,7 +24,7 @@
 	<h2 class="text-lg font-bold pr-10">{restaurantName}</h2>
 
 	{#if !hasLunch}
-		<span class="flex mt-1 mb-auto">
+		<span class="flex items-center mt-1 mb-auto">
 			<span class="text-red-500 mr-2">
 				{@html noticeIcon}
 			</span>
@@ -33,7 +33,7 @@
 	{/if}
 
 	{#if hasHours}
-		<span class="flex mt-1" class:mb-auto={!hasMenu}>
+		<span class="flex items-center mt-1" class:mb-auto={!hasMenu}>
 			<span class="text-slate-400 mr-2">
 				{@html clockIcon}
 			</span>

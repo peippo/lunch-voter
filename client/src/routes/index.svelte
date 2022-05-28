@@ -19,7 +19,7 @@
 		>
 	</h1>
 
-	<p class="text-lg mt-2" in:fade={{ delay: 1000 }}>
+	<p class="text-lg text-slate-600 mt-2" in:fade={{ delay: 1000 }}>
 		Browse daily restaurant menus and vote for your favorite!
 	</p>
 
