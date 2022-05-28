@@ -1,0 +1,25 @@
+{
+	"short_name": "Lunch Voter",
+	"name": "Lunch Voter",
+	"start_url": "/",
+	"icons": [
+		{
+			"src": "logo_512.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "any"
+		},
+		{
+			"src": "logo_512_maskable.png",
+			"type": "image/png",
+			"sizes": "512x512",
+			"purpose": "maskable"
+		}
+	],
+	"theme_color": "#db2778",
+	"background_color": "#f1f5f9",
+	"display": "standalone",
+	"orientation": "portrait",
+	"scope": "/",
+	"description": "Browse daily restaurant menus and vote for your favorite!"
+}
