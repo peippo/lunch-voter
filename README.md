@@ -1,44 +1,44 @@
-# Solidabis koodihaaste 2022
+<img src="https://lunch-voter.vercel.app/banner.png" alt="Banner image">
 
-Tehtävänäsi on toteuttaa lounaspaikkaäänestyssovelluksen frontend valmista APIa vasten (työkalut saat valita itse).
-Arvosteluperusteet tärkeysjärjestyksessä:
+Lunch restaurant voting app [frontend](https://github.com/peippo/lunch-voter/tree/main/client) built for [Solidabis](https://www.solidabis.com/) coding challenge. The Spring Boot [backend](https://github.com/peippo/lunch-voter/tree/main/server) was provided & ready to use, and only minor adjustments related to cookies/Heroku were added.
 
- 1. Ratkaisun oikeellisuus
-    1. ravintoloiden haku paikkakuntakohtaisesti
-    2. äänen antaminen, muuttaminen ja poistaminen
-    3. äänestystulosten esittäminen reaaliajassa
- 2. Testit
- 3. Ratkaisun selkeys ja yksinkertaisuus
- 4. Käyttöliittymäratkaisut
+### <a href="https://lunch-voter.vercel.app/">Open the project</a>
 
-Tässä repositoryssä on valmis Spring Bootilla toteutettu backend, joka toteuttaa lounaspaikkojen
-haku- ja äänestyslogiikan käyttäen Lounaat.info -palvelua.
+Note: the backend is running on Heroku and is probably sleeping, it will take a short while to wake up.
 
-Backendin ajamiseen tarvitset JDK:n (versio>=11) ja/tai Dockerin asennettuna työasemallesi.
+## Tech
 
-Backendin käynnistys:
+-  Built with Typescript & [Sveltekit](https://kit.svelte.dev/)
+-  Styling with [Tailwind](https://tailwindcss.com/)
+-  Uses [SWR](https://github.com/ConsoleTVs/sswr) package for data fetching/caching & window focus revalidation
+-  E2E tests with [Playwright](https://playwright.dev/)
+-  Backend runs on Heroku, frontend at Vercel
 
-    ./gradlew bootRun
+## Issues
 
-tai Dockerilla:
+-  Voting does not work in Safari, probably due to the server & client being hosted at different domains and third-party cookies being blocked by default
+-  Tests related to voting fail due to cookie issues, couldn't figure out a fix
 
-    docker run -p 8080:8080 solidabis/koodihaaste22:latest
+## Running locally
 
-Tutustu API-dokumentaatioon http://localhost:8080/swagger-ui.html
+### Server
 
-Päivä/selainkohtainen äänioikeus on toteutettu HTTP-only -cookiella.
+```bash
+./gradlew bootRun
+```
 
-# Palautus
+Note: I never ran this locally but I suppose it will still work after the small changes
 
-_Forkkaa tästä repositorystä oma julkinen ratkaisureposi_ ja lähetä linkki 31.5.2022 mennessä sähköpostilla osoitteeseen
-koodihaaste@solidabis.com. Muokkaa README.md -tiedostoa siten, että siitä ilmenee vastauksen
-tarkastelua helpottavat tiedot, kuten käyttämäsi teknologiat ja muutaman lauseen kuvaus tekemistäsi
-ratkaisuista. Voit myös julkaista ratkaisusi esim. Herokuun, muista liittää linkki ja mahdolliset salasanat sähköpostiin!
+### Client
 
-Backendin muuttaminen esim. autentikoinnin toteuttamiseksi on sallittua.
+```bash
+npm install
+npm run build
+npm run preview
+```
 
-Kerro samalla haluatko osallistua vain kilpailuun ja arvontaan, vai haluatko Solidabiksen
-ottavan yhteyttä myös työtarjouksiin liittyen. Se ei tarkoita, että sinulle lähetettäisiin roskapostia, vaan nimensä
-mukaisesti esimerkiksi kutsu työhaastatteluun. Voit halutessasi
-osallistua koodihasteeseen myös ilman, että haluat ottaa palkintoa
-vastaan tai osallistua arvontaan.
+Running tests
+
+```bash
+npm run test
+```
