@@ -1,5 +1,5 @@
 export const removeTrailingCityName = (restaurantName: string, city: string): string => {
-	const regExp = new RegExp(` ${city}`, 'i');
+	const regExp = new RegExp(`,? ${city}`, 'i');
 
 	return restaurantName.replace(regExp, '');
 };
