@@ -20,6 +20,10 @@ const config = {
 				float: 'float 5s ease-in-out infinite',
 				'float-slow': 'float 6s ease-in-out infinite',
 				'float-fast': 'float 4s ease-in-out infinite'
+			},
+			width: {
+				'logo-small': '60px',
+				'logo-large': '70px'
 			}
 		}
 	},

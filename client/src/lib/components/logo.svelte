@@ -6,9 +6,9 @@
 </script>
 
 <div
-	class="transition-all ease-in-out duration-500"
-	class:w-20={!isFrontPage}
-	class:md:w-24={!isFrontPage}
+	class="transition-all ease-in-out duration-500 mr-3 md:mr-4"
+	class:w-logo-small={!isFrontPage}
+	class:md:w-logo-large={!isFrontPage}
 	class:w-0={isFrontPage}
 >
 	{#if !isFrontPage}
