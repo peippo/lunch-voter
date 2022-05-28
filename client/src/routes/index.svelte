@@ -1,3 +1,7 @@
+<script context="module">
+	export const prerender = true;
+</script>
+
 <script>
 	import { fly, fade } from 'svelte/transition';
 	import FrontpageIllustration from '$lib/components/frontpageIllustration.svelte';
