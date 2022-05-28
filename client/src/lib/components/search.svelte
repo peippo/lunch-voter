@@ -5,6 +5,7 @@
 
 	$: inputField = '';
 	$: formError = false;
+	$: inputHasValidCity = isCity(inputField);
 
 	const handleSubmit = (event: { target: HTMLFormElement }) => {
 		const formData = new FormData(event.target);
@@ -30,8 +31,10 @@
 			type="search"
 			name="city"
 			class="border-slate-700 border-2 focus:border-slate-700 rounded-lg py-2 focus:outline-0 focus:ring-2 focus:ring-pink-500 caret-pink-500 px-3"
-			class:border-red-700={formError}
-			class:bg-red-200={formError}
+			class:border-red-700={!inputHasValidCity && formError}
+			class:bg-red-200={!inputHasValidCity && formError}
+			class:text-green-700={inputHasValidCity}
+			class:caret-green-700={inputHasValidCity}
 			autocomplete="off"
 			placeholder="Search for city"
 			on:change={() => (formError = false)}
