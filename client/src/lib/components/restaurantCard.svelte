@@ -64,13 +64,17 @@
 
 	{#if !hasMenu}
 		<a
-			class="flex items-center text-sm text-slate-500 focus-visible:outline-2 focus-visible:outline-pink-600 focus-visible:outline-offset-2 focus-visible:outline-dotted mt-4"
+			class="flex self-start items-center text-sm group text-slate-500 hover:text-slate-700 focus-visible:outline-2 focus-visible:outline-pink-600 focus-visible:outline-offset-2 focus-visible:outline-dotted mt-4"
 			href={`https://www.google.com/search?q=${encodeURIComponent(restaurantName)}+${city}`}
 		>
 			<span class="mr-2">
 				{@html externalLinkIcon}
 			</span>
-			Search for menu on Google
+			<span
+				class="group-hover:border-b border-slate-50 group-hover:border-slate-400 transition-all"
+			>
+				Search for <span class="sr-only">{restaurantName}</span> menu on Google
+			</span>
 		</a>
 	{/if}
 
