@@ -6,7 +6,7 @@
 </script>
 
 {#if $votedCity && $page.params.city !== $votedCity}
-	<div in:fade={{ delay: 500, duration: 500 }} class="flex text-slate-400 mt-12">
+	<div in:fade={{ delay: 500, duration: 500 }} class="flex text-slate-600 mt-12">
 		<p class="flex flex-row items-center mx-auto">
 			<span class="mr-2">
 				{@html noticeIcon}
@@ -17,7 +17,7 @@
 				class="focus-visible:outline-2 focus-visible:outline-pink-600 focus-visible:outline-offset-2 focus-visible:outline-dotted"
 			>
 				You voted in
-				<span class="capitalize border-b border-slate-400">{$votedCity}</span>
+				<span class="capitalize border-b border-slate-600">{$votedCity}</span>
 			</a>
 		</p>
 	</div>

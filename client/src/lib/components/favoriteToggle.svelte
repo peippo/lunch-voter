@@ -21,20 +21,20 @@
 		: () => ($favorites = [...$favorites, city])}
 >
 	{#if isFavorite}
-		<span class="sr-only">Remove from</span>
-		<span class="hidden md:group-hover:block text-slate-600 mr-3">Remove from</span>
+		<span class="sr-only text-slate-700">Remove from</span>
+		<span class="hidden md:group-hover:block text-slate-700 mr-3">Remove from</span>
 		<span>{@html starSolid}</span>
 	{:else if isFavoriteNavFull}
 		<span>{@html starExclamation}</span>
 	{:else}
-		<span class="sr-only">Add to</span>
-		<span class="hidden md:group-hover:block text-slate-600 mr-3">Add to</span>
+		<span class="sr-only text-slate-700">Add to</span>
+		<span class="hidden md:group-hover:block text-slate-700 mr-3">Add to</span>
 		<span>{@html starOutline}</span>
 	{/if}
 
 	{#if isDisabled}
 		<span class="hidden sm:block text-slate-300 ml-3">Favorites full</span>
 	{:else}
-		<span class="hidden sm:block text-slate-500 group-hover:text-slate-600 ml-3">Favorites</span>
+		<span class="hidden sm:block text-slate-600 group-hover:text-slate-700 ml-3">Favorites</span>
 	{/if}
 </button>
