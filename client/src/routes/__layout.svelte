@@ -1,11 +1,10 @@
 <script lang="ts">
 	import '../app.css';
 	import { page } from '$app/stores';
+	import { capitalizeString } from '$lib/utils';
 	import Logo from '$lib/components/logo.svelte';
 	import Search from '$lib/components/search.svelte';
-	import { capitalizeString } from '$lib/utils';
-
-	const citySuggestions = ['helsinki', 'turku', 'tampere', 'oulu', 'espoo'];
+	import FavoritesNav from '$lib/components/favoritesNav.svelte';
 
 	$: isCityPage = Boolean($page.params.city);
 	$: pageTitle = isCityPage
@@ -24,23 +23,8 @@
 		<Logo />
 		<Search />
 	</div>
-	<nav aria-label="Quicklinks">
-		<ul class="flex -ml-2 sm:-ml-3 md:ml-5 mt-2 md:mt-0">
-			{#each citySuggestions as city}
-				<li class="m-2 sm:m-3 md:m-2 lg:m-4">
-					<a
-						sveltekit:prefetch
-						href={`/city/${city}`}
-						class="capitalize lg:text-lg border-b-4 focus-visible:outline-2 focus-visible:outline-pink-600 focus-visible:outline-offset-2 focus-visible:outline-dotted transition-colors"
-						class:border-pink-500={$page.params.city === city}
-						class:hover:border-slate-300={$page.params.city !== city}
-					>
-						{city}
-					</a>
-				</li>
-			{/each}
-		</ul>
-	</nav>
+
+	<FavoritesNav />
 </header>
 
 <main class="p-5 mb-12">

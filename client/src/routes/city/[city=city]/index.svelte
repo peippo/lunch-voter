@@ -27,6 +27,7 @@
 	import Restaurants from '$lib/components/restaurants.svelte';
 	import VoteNotice from '$lib/components/voteNotice.svelte';
 	import NoRestaurantsMessage from '$lib/components/noRestaurantsMessage.svelte';
+	import FavoriteToggle from '$lib/components/favoriteToggle.svelte';
 
 	export let initialData: RestaurantResponse;
 	export let city: string;
@@ -40,13 +41,17 @@
 
 {#key url}
 	{#if city}
-		<h1
-			class="city-title text-4xl md:text-5xl lg:text-6xl text-slate-500 my-5 capitalize"
-			in:fly={{ x: -20, duration: 500, delay: 250 }}
-			out:fly={{ x: 25, duration: 250 }}
-		>
-			{city}
-		</h1>
+		<div class="flex justify-between">
+			<h1
+				class="city-title text-4xl md:text-5xl lg:text-6xl text-slate-500 my-5 capitalize"
+				in:fly={{ x: -20, duration: 500, delay: 250 }}
+				out:fly={{ x: 25, duration: 250 }}
+			>
+				{city}
+			</h1>
+
+			<FavoriteToggle {city} />
+		</div>
 	{/if}
 
 	<div out:fade|local={{ duration: 250 }}>

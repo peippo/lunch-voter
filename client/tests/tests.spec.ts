@@ -34,6 +34,18 @@ test.describe('City page', () => {
 		await expect(page.locator('main h1')).toContainText('404');
 	});
 
+	test('should allow adding city to favorites', async ({ page }) => {
+		await page.goto('/city/pori');
+		await page.locator('text=Add to Favorites').click();
+		await expect(page.locator('header nav')).toContainText('pori');
+	});
+
+	test('should allow removing city from favorites', async ({ page }) => {
+		await page.goto('/city/helsinki');
+		await page.locator('text=Remove from Favorites').click();
+		await expect(page.locator('header nav')).not.toContainText('helsinki');
+	});
+
 	// TODO: mock API response instead of relying on Kaskinen never getting restaurants :)
 	test('should show message on city without restaurants', async ({ page }) => {
 		await page.goto('/city/kaskinen');
