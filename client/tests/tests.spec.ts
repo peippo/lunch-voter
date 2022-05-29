@@ -29,11 +29,6 @@ test.describe('City page', () => {
 		await expect(page.locator('ul:below(h1)').first()).not.toBeEmpty();
 	});
 
-	test('should show 404 error on unknown city', async ({ page }) => {
-		await page.goto('/city/mumbai');
-		await expect(page.locator('main h1')).toContainText('404');
-	});
-
 	test('should allow adding city to favorites', async ({ page }) => {
 		await page.goto('/city/pori');
 		await page.locator('text=Add to Favorites').click();
@@ -77,5 +72,19 @@ test.describe('City page', () => {
 		await voteButton.click();
 		await page.goto('/city/turku');
 		await expect(page.locator('main')).toContainText('You voted in Helsinki');
+	});
+});
+
+test.describe('Error pages', () => {
+	test('should show error on unknown page', async ({ page }) => {
+		await page.goto('/404');
+		await expect(page.locator('main h1')).toContainText('Sorry, we seem to have ran into an issue');
+	});
+
+	test('should show error on unknown city page', async ({ page }) => {
+		await page.goto('/city/mumbai');
+		await expect(page.locator('main h1')).toContainText(
+			'Mumbai does not seem to be a city in Finland'
+		);
 	});
 });
