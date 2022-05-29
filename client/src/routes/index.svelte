@@ -10,7 +10,7 @@
 <div class="text-center" transition:fade={{ duration: 250 }}>
 	<FrontpageIllustration />
 
-	<h1 class="flex items-end justify-center" in:fade>
+	<h1 class="flex items-end justify-center">
 		<span
 			in:fly={{ x: -20, delay: 500 }}
 			class="text-5xl md:text-6xl lg:text-7xl text-slate-600 tracking-tight md:tracking-normal"
