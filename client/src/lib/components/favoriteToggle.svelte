@@ -22,13 +22,13 @@
 >
 	{#if isFavorite}
 		<span class="sr-only">Remove from</span>
-		<span class="hidden group-hover:block text-slate-600 mr-3">Remove from</span>
+		<span class="hidden md:group-hover:block text-slate-600 mr-3">Remove from</span>
 		<span>{@html starSolid}</span>
 	{:else if isFavoriteNavFull}
 		<span>{@html starExclamation}</span>
 	{:else}
 		<span class="sr-only">Add to</span>
-		<span class="hidden group-hover:block text-slate-600 mr-3">Add to</span>
+		<span class="hidden md:group-hover:block text-slate-600 mr-3">Add to</span>
 		<span>{@html starOutline}</span>
 	{/if}
 
